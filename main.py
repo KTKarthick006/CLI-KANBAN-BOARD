@@ -37,3 +37,9 @@ def rm_board(): #remove board
         for file in os.listdir(b[choice-1]):
             os.remove(os.path.join(b[choice-1],file))
         os.rmdir(b[choice-1])
+def init(): #initialize
+        files=["todo.csv","done.csv","inprogress.csv","queued.csv","waiting.csv"]
+        for file in files:
+            if not os.path.exists(os.path.join(path,file)):
+                with open(file,"w") as f:
+                    pass
