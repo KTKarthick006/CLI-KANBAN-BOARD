@@ -27,3 +27,13 @@ def use_board():
         working_board=b[choice-1]
         path=os.path.join(os.getcwd(),working_board)
         os.chdir(path)
+def rm_board(): #remove board
+        for i,board in enumerate(b):
+            print(f"{i+1}. {board}")
+        choice=int(input("Enter Board Number \n>>"))
+        if choice>len(b):
+            print("Enter valid choice !!!")
+            return
+        for file in os.listdir(b[choice-1]):
+            os.remove(os.path.join(b[choice-1],file))
+        os.rmdir(b[choice-1])
