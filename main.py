@@ -9,3 +9,11 @@ def boards():
     for dir in os.listdir(path):
         if os.path.isdir(dir):
             b.append(dir)
+def add_board():
+         name=input("Enter board name \n>>").strip()
+         if name in b:
+              print("Board Already Exists !!!")
+              return
+         else:
+              os.mkdir(name)
+              b.append(name)
