@@ -155,3 +155,61 @@ def mv():
     popped[0]=task_id
     with open(file_new,"a") as f:
         writer=csv.writer(f)
+        writer.writerow(popped)
+def tasks_driver():
+    while True:
+        print("Task Management System")
+        print("_"*67,"\n")
+        print("Current Working Board:", working_board,"\n")
+        print("1. Add Task")
+        print("2. Delete Task")
+        print("3. Change Task Status")
+        print("4. List Tasks")
+        print("5. Exit")
+        choice = int(input("\nEnter your choice\n>>"))    
+        if choice == 1:
+            add()
+        elif choice == 2:
+            rmv()
+        elif choice == 3:
+            mv()
+        elif choice == 4:
+            ls()
+        elif choice == 5:
+            os.chdir("..")
+            path=os.getcwd()
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+def board_driver():
+    while True:
+        print("Kanban Board Management System")
+        print("_"*67,"\n")
+        print("1. Add Board")
+        print("2. Use Board")
+        print("3. Delete Board")
+        print("4. List Boards") 
+        print("5. Exit")
+        choice = int(input("\nEnter your choice\n>>"))
+        if choice == 1:
+            add_board()
+        elif choice == 2:
+            use_board()
+            tasks_driver()
+        elif choice == 3:
+            rm_board()
+        elif choice == 4:
+            ls_boards() 
+        elif choice == 5:
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+def main():
+    boards()
+    board_driver()
+    print("\t\tThanks for Trying this program \n\n\t\t  A Program by TBA5854\n")
+
+if __name__ == "__main__":
+    main()
