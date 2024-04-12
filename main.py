@@ -17,3 +17,13 @@ def add_board():
          else:
               os.mkdir(name)
               b.append(name)
+def use_board():
+        global working_board , path
+        for i,board in enumerate(b):
+            print(f"{i+1}. {board}")
+        choice=int(input("Enter Board Number \n>>"))
+        if choice>len(b):
+            print("Enter valid choice")
+        working_board=b[choice-1]
+        path=os.path.join(os.getcwd(),working_board)
+        os.chdir(path)
